@@ -17,3 +17,6 @@
 #Bounds: various ways of rescaling the data
 #Scaling functions: pull together palettes, bounding functions and transformations to provide a complete pathway from raw data to perceptual properties
 #Mutable ranges: in many graphics pathways, scale ranges can not be computed in a single pass, but must be computed over multiple groups or multiple panels. The mutable ranges (implemented with R's new reference based class) provide a thin layer of mutability to make this task easier.
+
+# NIce
+# Good discriptions

@@ -37,3 +37,6 @@ SACTN %>% #Select dataset
   summarise(mean_temp = mean(temp, na.rm = TRUE), #stat calculations named. Mean temp calculated and na values are excluded
             sd_temp = sd(temp, na.rm = TRUE)) #Standard deviation calculated and na values are excluded
 
+# [A.A]
+# Greating comments
+# Sjoh! NIcely done

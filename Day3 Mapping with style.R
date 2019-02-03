@@ -43,3 +43,7 @@ sa_4 <- sa_3 +
   annotation_custom(grob = ggplotGrob(africa_map),
                     xmin = 20.9, xmax = 26.9,
                     ymin = -30, ymax = -24)
+
+# [A.A]
+# More comments shows a better understanding
+# Play around with the code, change size of text/angle

@@ -59,3 +59,9 @@ lam %>%
 ggplot(data = lam, aes(x = stipe_mass, y = stipe_length)) +
   geom_point(shape = 21, colour = "salmon", fill = "white") +
   labs(x = "Stipe mass (kg)", y = "Stipe length (cm)")
+
+# [A.A]
+# Neat script, Script runs nicely
+# Exploring and trying new code should e tested in the script as well
+# More comments throughtout the script only benifits one for future use
+# Nicely done

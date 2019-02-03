@@ -72,3 +72,7 @@ final_map <- ggplot(data = south_africa_coast, aes(x = lon, y = lat)) +
   )
 final_map
 
+# Lack of self made comments in the script
+# Neat script
+# should explore more and play around with code
+

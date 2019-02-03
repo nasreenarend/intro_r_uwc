@@ -116,6 +116,11 @@ Lam2 <- Lam %>% #A new dataset created from Lam dataset
             avrg_sl = mean(stipe_length),
             avrg_sm = mean(stipe_mass))
 
+# Nice plots
+# Neat script
+# Different plot could allow for better hypotheses but this will be taught in biostats
+# After creating a visualisation its always good to asnwer the hypotheses using the visualisation
+# Nicely done
 
 
 

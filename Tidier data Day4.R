@@ -69,3 +69,8 @@ SACTN %>%
             max(temp, na.rm = T))
 
 
+# [A.A]
+# Sufficient comments made throughut the script
+# Script runs
+# Neat script
+# Nicely done
