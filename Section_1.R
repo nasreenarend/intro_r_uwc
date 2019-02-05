@@ -47,38 +47,40 @@ col_temp <- c("#58C7D2", "#53B6C2", "#4EA4B2", "#4893A2", "#438292", "#3D7282", 
 ggplot(data = rast_aug, aes(x = lon, y = lat)) + #using rast_aug dataset a  map outline was created with latitude and longitude values
   geom_point() #values were mapped as coordinate points
 
-map_aug <-  ggplot(rast_aug, aes(x = lon, y = lat)) +
-  geom_point() +
-  geom_polygon(colour = "black", fill = "grey70", aes(group = temp)) +
+map_aug <-  ggplot(rast_aug, aes(x = lon, y = lat)) + #Assign a name to map. Using rast_aug dataset. aes specifies the x and y axis values
+  geom_point() + #Specifies points on map
+  geom_polygon(colour = "black", fill = "grey70", aes(group = temp)) + #Allows the outline of map to be black and the fill to be grey, with it group by temperature.
   geom_raster(data = rast_aug, aes(fill = bins)) +
-  geom_path(data = sa_provinces, aes(group = group)) +
-  geom_tile(data = rast_aug, aes(x = lon, y = lat, fill = bins), 
-            colour = "white", size = 0.5) +
-  scale_fill_manual("Temp. (°C)", values = col_temp) +
-  coord_equal(xlim = c(15, 35), ylim = c(-37, -26), expand = 0) +
+  geom_path(data = sa_provinces, aes(group = group)) + #Allows provinces to be mapped within outline, using sa_provinces dataset
+  geom_tile(data = rast_aug, aes(x = lon, y = lat, fill = bins), #Outline tiles uses rast_aug dataset, specifies that the x and y axis should be longitude and latitude respectively and the fill collerates with bins values
+            colour = "white", size = 0.5) + #The tile outline should be white and size 0.5
+  scale_fill_manual("Temp. (°C)", values = col_temp) + #The scale title was assigned and values specified to be the created pallete col_temp
+  coord_equal(xlim = c(15, 35), ylim = c(-37, -26), expand = 0) + #The graph size was specified 
   labs(x = "Longitude", y = "Latitude") + #function allows labels to be assigned to the axis
   scale_x_continuous(position = "top") + # Put x axis labels on top of figure
-  annotate("text", label = "Atlantic\nOcean", 
-           x = 16.5, y = -32.5, 
-           size = 7.0, 
-           angle = 10, 
-           colour = "navyblue") +
+  annotate("text", label = "Atlantic\nOcean", #The ocean names were assigned and named
+           x = 16.5, y = -32.5, #Position on map 
+           size = 7.0, #Font size
+           angle = 10, #Angle of text
+           colour = "navyblue") + #Colour of text
   annotate("text", label = "Indian\nOcean", 
-           x = 31.5, y = -33, 
-           size = 7.0, 
-           angle = 10, 
-           colour = "red") +
-  scalebar(x.min = 22, x.max = 26, y.min = -36, y.max = -35, # Set location of bar
+           x = 31.5, y = -33, #Position on map
+           size = 7.0, #Font size
+           angle = 10, #Angle of text
+           colour = "red") + #Colour of text
+  scalebar(x.min = 22, x.max = 26, y.min = -36, y.max = -35, # Set location of scalebar
            dist = 200, height = 1, st.dist = 0.8, st.size = 4, # Set particulars
            dd2km = TRUE, model = "WGS84") + # Set appearance
   north(x.min = 16.5, x.max = 19, y.min = -34, y.max = -36, # Set location of symbol
         scale = 1.2, symbol = 16) +
-  annotation_custom(grob = ggplotGrob(africa_map),
+  annotation_custom(grob = ggplotGrob(africa_map), #Creation a map of Africa
                     xmin = 22, xmax = 24,
                     ymin = -27.5, ymax = -29.5) +
-  ggtitle("Sea surface temperature around the coast of South Africa during August")
+  ggtitle("Sea surface temperature around the coast of South Africa during August") + #Title added
+  theme_bw() #Black and white theme assigned to map
 map_aug  
 
+#Practice map
 aug_map <- ggplot(data = rast_aug, aes(x = lon, y = lat))+ #Assign a name aug_map to plot using rast_aug dataset.Using aes function it was specified that the data lat and long should be plotted on the x and y axis respectively.
   geom_point() +
   geom_polygon(colour = "black", fill = "grey70", aes(group = temp)) +
@@ -134,13 +136,13 @@ feb_map <- ggplot(data = rast_feb, aes(x = lon, y = lat)) + #Assign a name aug_m
         legend.background = element_rect(colour = "white"), # Add legend background
         legend.justification = c(1, 0), # Change position of legend
         legend.position = c(1, 0.578)) +
-  annotate("text", label = "Atlantic\nOcean", 
-           x = 15.2, y = -31, 
+  annotate("text", label = "Atlantic\nOcean", #The ocean name was assigned and named
+           x = 15.2, y = -31, #Position on map 
            size = 5.0, 
            angle = 10, 
            colour = "navyblue") +
-  annotate("text", label = "Indian\nOcean", 
-           x = 31.5, y = -33, 
+  annotate("text", label = "Indian\nOcean", #The ocean name was assigned and named
+           x = 31.5, y = -33, #Position on map 
            size = 5.0, 
            angle = 10, 
            colour = "red") +
@@ -165,25 +167,26 @@ map_feb <-  ggplot(rast_feb, aes(x = lon, y = lat)) + #Parent line. Using rast_f
   coord_equal(xlim = c(15, 35), ylim = c(-37, -26), expand = 0) +
   labs(x = "Longitude", y = "Latitude") + #function allows labels to be assigned to the axis
   scale_x_continuous(position = "top") + # Put x axis labels on top of figure
-  annotate("text", label = "Atlantic\nOcean", 
-           x = 16.5, y = -32.5, 
-           size = 7.0, 
-           angle = 10, 
-           colour = "navyblue") +
-  annotate("text", label = "Indian\nOcean", 
-           x = 31.5, y = -33, 
-           size = 7.0, 
-           angle = 10, 
-           colour = "red") +
+  annotate("text", label = "Atlantic\nOcean", #The ocean name was assigned and named
+           x = 16.5, y = -32.5, #Position on map 
+           size = 7.0, #Size of font
+           angle = 10, #Angle of text
+           colour = "navyblue") + #Colour of text
+  annotate("text", label = "Indian\nOcean", #The ocean name was assigned and named
+           x = 31.5, y = -33, #Position on map 
+           size = 7.0, #Size of font 
+           angle = 10, #Angle of text
+           colour = "red") + #Colour of text
   scalebar(x.min = 22, x.max = 26, y.min = -36, y.max = -35, # Set location of bar
            dist = 200, height = 1, st.dist = 0.8, st.size = 4, # Set particulars
            dd2km = TRUE, model = "WGS84") + # Set appearance
-  north(x.min = 16.5, x.max = 19, y.min = -34, y.max = -36, # Set location of symbol
+  north(x.min = 16.5, x.max = 19, y.min = -34, y.max = -36, # Set location and size of symbol
         scale = 1.2, symbol = 16) +
-  annotation_custom(grob = ggplotGrob(africa_map),
-                    xmin = 22, xmax = 24,
-                    ymin = -27.5, ymax = -29.5) +
-  ggtitle("Sea surface temperature around the coast of South Africa during February")
+  annotation_custom(grob = ggplotGrob(africa_map), #Creation a map of Africa
+                    xmin = 22, xmax = 24, #Position and size of Africa 
+                    ymin = -27.5, ymax = -29.5) + 
+  ggtitle("Sea surface temperature around the coast of South Africa during February") + #Title added
+  theme_bw() #Black and white theme assigned
 map_feb  
 
 
