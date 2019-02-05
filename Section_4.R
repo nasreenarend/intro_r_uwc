@@ -14,13 +14,13 @@ toothgrowth <- datasets::ToothGrowth %>% #Data loaded with dataset:: function an
   summarise(mn.ln = mean(len), #Summarise the mean length and standard deviation length 
             sd.ln = sd(len))
 
-tooth_col <- ggplot(toothgrowth, aes(x = dose, y = mn.ln, fill = supp)) + #
+tooth_col <- ggplot(toothgrowth, aes(x = dose, y = mn.ln, fill = supp)) + #New name assigned using toothgrowth dataset to create graph with x value being dose and y being mn.ln with the fill specified by supp
   geom_col(aes(fill = supp), position = "dodge", colour = "navyblue") + #A column plot used, using the supp column as a fill, "dodge" function used to align the columns
   geom_errorbar(aes(ymin = mn.ln - sd.ln, #Error bars inserted in columns using the mean and standard deviation values on the y axis
                     ymax = mn.ln + sd.ln),
-                position = "dodge") +
-  labs(x = "Dose (mg/d)", y = "Tooth length (mm)") +
-  ggtitle("The relationship between vitamin C dosage (mg/d) tooth length(mm)")
+                position = "dodge") + #Aligns the position of error bars
+  labs(x = "Dose (mg/d)", y = "Tooth length (mm)") + #Labels assigned
+  ggtitle("The relationship between vitamin C dosage (mg/d) tooth length(mm)") #Title added
 
 chick_1 <- datasets::ChickWeight #The chickWeight dataset was loaded by using the "dataset::" function and assigning it a name with the " <- " function
 
@@ -31,28 +31,6 @@ chick_dens2 <- ggplot(chick_1, aes(x = weight, color = Diet)) + #A name was assi
   geom_density() #A density plot was chosen
 
 
-
-#Tidy data should be longer(rows) than broader(columns)
-#Load libraries
-library(tidyverse) 
-library(lubridate)
-
-load("data/SACTN_mangled.RData") #Load SACTN_mangled R data
-
-SACTN2_tidy <- SACTN2 %>%
-  gather(DEA, KZNSB, SAWS, key = "src", value = "temp") #this function allows all the sources to be grouped into one column
-
-SACTN3_tidy <- SACTN3 %>% 
-  spread(key = var, value = val)
-#allows columns to be joined. same data
-
-SACTN4a_tidy <- SACTN4a %>% 
-  separate(col = index, into = c("site", "src"), sep = "/ ") #seperates columns. c function used to seperate more than 1
-
-SACTN4b_tidy <- SACTN4b %>% 
-  unite(year, month, day, col = "date", sep = "-") #3 columns: day, month and date joined into one column, date. sep by -.
-
-SACTN4_tidy <- left_join(SACTN4a_tidy, SACTN4b_tidy) #datasets combined 
 
 
 
