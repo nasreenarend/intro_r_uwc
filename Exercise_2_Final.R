@@ -62,4 +62,7 @@ tooth_col <- ggplot(toothgrowth, aes(x = dose, y = mn.ln, fill = supp)) + #New n
   labs(x = "Dose (mg/d)", y = "Tooth length (mm)") + #Labels assigned
   ggtitle("The relationship between vitamin C dosage (mg/d) tooth length(mm)") #Title added
   
+# Good comments throughout the script
+# The SAC dataset used in line 18 is not previously identifed 
+# Script is neat: making it easier for the marker which is important
 

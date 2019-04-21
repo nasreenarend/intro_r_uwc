@@ -119,6 +119,10 @@ plt3 <- plt1 + coord_polar("y", start = 0) +
   scale_fill_brewer(palette = "Blues") +
   theme_minimal()
 
+# Very neat script
+# Runs nicely
+# Good comments
+
 
                
   

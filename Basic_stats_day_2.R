@@ -147,3 +147,9 @@ chick_box
 TukeyHSD(chicks.aov1)
 
 summary(aov(weight ~ Diet, data = filter(chicks, Time %in% c(0))))
+
+
+# Neat script
+# Everything runs and perfect comments
+# Its always good to start the script by explaining what the script is about
+
